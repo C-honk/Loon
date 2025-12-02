@@ -1,0 +1,17 @@
+#!name = Youtube视频
+#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/YouTube.png
+#!date = 2025.12.2
+
+[Argument]
+blockUpload = switch, true, false, tag = 上传按钮
+blockShorts = switch, true, false, tag = 短片按钮
+blockImmersive = switch, true, false, tag = 选段按钮
+
+[Rewrite]
+^https:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
+
+[Script]
+http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, requires-body=true, binary-body-mode=true, tag=广告处理, argument=[{blockUpload},{blockShorts},{blockImmersive}]
+
+[MitM]
+hostname = youtubei.googleapis.com,*.googlevideo.com
