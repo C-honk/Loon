@@ -1,9 +1,0 @@
-#!name = 节点信息查询
-#!icon = https://img.freepik.com/premium-vector/ip-address-point-locator-online-privacy-anonymity-vector-illustration-symbol-element_660702-417.jpg
-#!date = 2025.12.3
-
-[Argument]
-hideIP = switch, false , true, tag = 隐藏IP段
-
-[Script]
-generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/IPInfo.js, timeout=30, tag=IP位置信息查询, img-url=globe.asia.australia.fill
