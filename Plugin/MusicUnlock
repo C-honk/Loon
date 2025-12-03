@@ -7,7 +7,7 @@
 ^https:\/\/spclient\.wg\.spotify\.com\/(watch-feed-entrypoints|ads\/v3\/ads|pendragon|merch-npv-service) mock-response-body data-type=text status-code=200
 
 [Script]
-http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Unlock.js, requires-body=true, binary-body-mode=true, tag=解锁处理
+http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Premium.js, requires-body=true, binary-body-mode=true, tag=解锁处理
 
 [Mitm]
 hostname = spclient.wg.spotify.com,*-spclient.spotify.com
