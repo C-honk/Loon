@@ -1,6 +1,6 @@
 #!name = 节点信息查询
-#!icon = https://img.ixintu.com/download/jpg/20201225/97630e7061ca3b997060f1cc6f837940_512_512.jpg!con
+#!icon = https://png.pngtree.com/png-clipart/20200813/ourlarge/pngtree-location-navigation-icon-png-image_2325050.jpg
 #!date = 2025.12.3
 
 [Script]
-generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/NodeInfo.js, timeout=30, tag=IP位置信息查询, img-url=globe.asia.australia.fill
+generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/IPInfo.js, timeout=30, tag=IP位置信息查询, img-url=globe.asia.australia.fill
