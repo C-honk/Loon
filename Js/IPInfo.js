@@ -1,9 +1,10 @@
 /*
 脚本说明：
 - 默认显示完整 IP。
-- 可通过 $environment.args.hideIP 控制是否隐藏 IP：
-  hideIP = true  → 隐藏 IP（最后一段数字用 *）
-  hideIP = false → 显示完整 IP（默认）
+- 在 Loon 中通过 Argument 控制隐藏 IP：
+  [Argument]
+  hideIP = switch, false, true, tag=隐藏IP段
+- hideIP 开启后，入口和落地 IP 显示成 8.8*.* 格式（前两段显示，后两段隐藏）。
 */
 
 const scriptName = "节点信息查询";
@@ -19,10 +20,18 @@ const countryMap = {
     "US": "美国"
 };
 
+// 将 IP 隐藏成 8.8*.* 格式
+function maskIP(ip) {
+    if (!ip) return "";
+    const parts = ip.split(".");
+    if (parts.length !== 4) return ip;
+    return `${parts[0]}.${parts[1]}*.*`;
+}
+
 (async () => {
     const inputParams = $environment.params;
-    const args = $environment.args || {};
-    const hideIP = args.hideIP === true; // 参数控制隐藏 IP，默认不隐藏
+    const args = $argument || {};
+    const hideIP = args.hideIP === true || args.hideIP === "true"; // switch可能是布尔或字符串
 
     const nodeName = inputParams.node;
     const nodeAddress = inputParams.nodeInfo.address;
@@ -39,8 +48,9 @@ const countryMap = {
 
         if (decodedEntryInfo) {
             hasSuccess = true;
+            const displayEntryIP = hideIP ? maskIP(entryIp) : entryIp;
             entryHtml = 
-                `IP：${hideIP ? entryIp.replace(/\d+$/, "*") : entryIp}<br>` +
+                `IP：${displayEntryIP}<br>` +
                 `位置：${decodedEntryInfo.city || decodedEntryInfo.province || ""}<br>` +
                 `运营：${decodedEntryInfo.isp || decodedEntryInfo.operator || ""}<br>`;
         } else {
@@ -63,10 +73,10 @@ const countryMap = {
                 countryName = landingInfo.country || landingInfo.region || "";
             }
 
-            const displayIP = hideIP ? landingInfo.ip.replace(/\d+$/, "*") : landingInfo.ip;
+            const displayLandingIP = hideIP ? maskIP(landingInfo.ip) : landingInfo.ip;
 
             landingHtml = 
-                `IP：${displayIP}<br>` +
+                `IP：${displayLandingIP}<br>` +
                 `位置：${countryName}<br>` +
                 `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         } else {
