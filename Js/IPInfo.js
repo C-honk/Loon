@@ -79,7 +79,7 @@ const countryMap = {
             <br>
             ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
             ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
-            选中节点：${nodeName}<br>
+            节点：${nodeName}<br>
             ${errorLogs.length ? `<br><span style="color:red;">错误记录:<br>${errorLogs.join("<br>")}</span>` : ""}
         </p>`;
 
