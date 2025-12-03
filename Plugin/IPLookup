@@ -1,0 +1,6 @@
+#!name = 节点信息查询
+#!icon = https://img.88icon.com/upload/jpg/20210524/6e05c0d0c190032dc6e74bafb1af111f_55288_800_783.jpg!bg
+#!date = 2025.12.3
+
+[Script]
+generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/NodeInfo.js, timeout=30, tag=IP位置信息查询, img-url=globe.asia.australia.fill
