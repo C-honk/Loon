@@ -20,7 +20,6 @@ const countryMap = {
     let landingHtml = "";
     let errorLogs = [];
 
-    // 查询入口
     try {
         const entryIp = await resolveNodeIP(nodeAddress);
         const entryInfo = await queryEntryIP(entryIp);
@@ -38,7 +37,6 @@ const countryMap = {
         errorLogs.push("入口查询失败");
     }
 
-    // 查询落地
     try {
         const landingInfo = await queryIPInfo("http://ipinfo.io/json");
 
@@ -61,7 +59,6 @@ const countryMap = {
         errorLogs.push("落地查询失败");
     }
 
-    // 拼接 HTML
     let html = `
         <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.4;">
             <br>
