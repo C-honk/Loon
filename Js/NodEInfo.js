@@ -1,5 +1,6 @@
-const scriptName = "节点信息查询";
+// 2025.12.5
 
+const scriptName = "节点信息查询";
 const countryMap = {
     "HK": "香港",
     "TW": "台湾",
@@ -60,7 +61,7 @@ const countryMap = {
     }
 
     let html = `
-        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.4;">
+        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:17px; line-height:1.5;">
             <br>
             ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
             ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
