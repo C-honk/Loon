@@ -96,7 +96,7 @@ const countryMap = {
     }
 
     const html = `
-        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:17px; line-height:1.5;">
+        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.4;">
             <br>
             ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
             ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
