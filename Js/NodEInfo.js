@@ -23,10 +23,10 @@ const countryMap = {
 
     try {
         const landingInfo = await new Promise((resolve, reject) => {
-            const timer = setTimeout(() => reject(new Error("落地请求超时")), 5000);
+            const timer = setTimeout(() => reject(new Error("请求超时")), 5000);
             $httpClient.get({ url: "http://ipinfo.io/json", node: nodeName }, (err, resp, body) => {
                 clearTimeout(timer);
-                if (err) return reject(new Error("落地请求失败：" + err.message));
+                if (err) return reject(new Error("请求失败：" + err.message));
                 try { resolve(JSON.parse(body)); } 
                 catch { resolve({}); }
             });
@@ -46,30 +46,30 @@ const countryMap = {
                 `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
     } catch (err) {
-        errorLogs.push(`落地查询请求失败：${err.message}`);
+        errorLogs.push(`落地查询：${err.message}`);
     }
 
     try {
         let entryIp = nodeAddress;
         if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(nodeAddress)) {
             const res = await new Promise((resolve, reject) => {
-                const timer = setTimeout(() => reject(new Error("入口DNS解析超时")), 5000);
+                const timer = setTimeout(() => reject(new Error("DNS解析超时")), 5000);
                 $httpClient.get({ url: `http://223.5.5.5/resolve?name=${nodeAddress}&type=A&short=1` }, (err, resp, body) => {
                     clearTimeout(timer);
-                    if (err) return reject(new Error("入口DNS请求失败：" + err.message));
+                    if (err) return reject(new Error("DNS请求失败：" + err.message));
                     try { resolve(JSON.parse(body)); } 
                     catch { resolve([]); }
                 });
             });
             if (res?.length > 0) entryIp = res[0];
-            else errorLogs.push("入口查询请求失败：无法解析IP");
+            else errorLogs.push("无法解析IP");
         }
 
         const entryInfo = await new Promise((resolve, reject) => {
-            const timer = setTimeout(() => reject(new Error("入口请求超时")), 5000);
+            const timer = setTimeout(() => reject(new Error("请求超时")), 5000);
             $httpClient.get({ url: `http://api-v3.speedtest.cn/ip?ip=${entryIp}` }, (err, resp, body) => {
                 clearTimeout(timer);
-                if (err) return reject(new Error("入口请求失败：" + err.message));
+                if (err) return reject(new Error("请求失败：" + err.message));
                 try { resolve(JSON.parse(body)); } 
                 catch { resolve({}); }
             });
@@ -92,7 +92,7 @@ const countryMap = {
                 `运营：${decoded.isp || decoded.operator || ""}<br>`;
         }
     } catch (err) {
-        errorLogs.push(`入口查询请求失败：${err.message}`);
+        errorLogs.push(`入口查询：${err.message}`);
     }
 
     const html = `
