@@ -1,0 +1,9 @@
+#!name = 订阅管理工具
+#!date = 2025.12.6
+
+[Script]
+http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, tag=后端
+http-request ^https:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, tag=前端
+
+[Mitm]
+hostname = sub.store
