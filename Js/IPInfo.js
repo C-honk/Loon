@@ -1,4 +1,4 @@
-// 2025.12.5
+// 2025.12.9
 
 const scriptName = "节点信息查询";
 const countryMap = {
@@ -74,7 +74,7 @@ const countryMap = {
                 `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
     } catch (err) {
-        errorLogs.push(`落地查询：${err.message}`);
+        errorLogs.push(`落地：${err.message}`);
     }
 
     try {
@@ -120,7 +120,7 @@ const countryMap = {
                 `运营：${decoded.isp || decoded.operator || ""}<br>`;
         }
     } catch (err) {
-        errorLogs.push(`入口查询：${err.message}`);
+        errorLogs.push(`入口：${err.message}`);
     }
 
     const html = `
