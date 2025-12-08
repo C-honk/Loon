@@ -1,0 +1,6 @@
+#!name = DNS映射
+#!icon = https://static.vecteezy.com/system/resources/thumbnails/034/433/262/small_2x/dns-icon-with-a-server-vector.jpg
+#!date = 2025.12.8
+
+[Host]
+*.google.* = server:8.8.8.8
