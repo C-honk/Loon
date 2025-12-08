@@ -1,0 +1,36 @@
+#!name = 代理映射DNS
+#!icon = https://static.vecteezy.com/system/resources/thumbnails/034/433/262/small_2x/dns-icon-with-a-server-vector.jpg
+#!date = 2025.12.8
+
+[Host]
+*.google.* = server:8.8.8.8
+*.facebook.* = server:8.8.8.8
+*.twitter.* = server:8.8.8.8
+*.youtube.* = server:8.8.8.8
+*.instagram.* = server:8.8.8.8
+*.linkedin.* = server:8.8.8.8
+*.reddit.* = server:8.8.8.8
+*.wikipedia.* = server:8.8.8.8
+*.github.* = server:8.8.8.8
+*.stackoverflow.* = server:8.8.8.8
+*.pinterest.* = server:8.8.8.8
+*.tumblr.* = server:8.8.8.8
+*.netflix.* = server:8.8.8.8
+*.amazon.* = server:8.8.8.8
+*.paypal.* = server:8.8.8.8
+*.dropbox.* = server:8.8.8.8
+*.quora.* = server:8.8.8.8
+*.spotify.* = server:8.8.8.8
+*.tiktok.* = server:8.8.8.8
+*.ebay.* = server:8.8.8.8
+*.medium.* = server:8.8.8.8
+*.soundcloud.* = server:8.8.8.8
+*.vimeo.* = server:8.8.8.8
+*.cnn.* = server:8.8.8.8
+*.bbc.* = server:8.8.8.8
+*.nytimes.* = server:8.8.8.8
+*.forbes.* = server:8.8.8.8
+*.theverge.* = server:8.8.8.8
+*.wired.* = server:8.8.8.8
+*.techcrunch.* = server:8.8.8.8
+*.huffpost.* = server:8.8.8.8
