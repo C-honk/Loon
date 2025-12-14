@@ -1,4 +1,4 @@
-// 2025.12.9
+// 2025.12.15
 
 const scriptName = "节点信息查询";
 const countryMap = {
@@ -45,6 +45,14 @@ const countryMap = {
     const nodeName = inputParams.node;
     let nodeAddress = inputParams.nodeInfo.address;
 
+    const maskIP = inputParams.maskIP === "false";
+
+    function maskIp(ip) {
+        if (!ip || !/^\d{1,3}(\.\d{1,3}){3}$/.test(ip)) return ip;
+        const parts = ip.split(".");
+        return `${parts[0]}.${parts[1]}.-.-`;
+    }
+
     let entryHtml = "";
     let landingHtml = "";
     let errorLogs = [];
@@ -61,15 +69,14 @@ const countryMap = {
         });
 
         if (landingInfo?.ip) {
-            let countryName = "";
-            if (landingInfo.country && countryMap[landingInfo.country]) {
-                countryName = countryMap[landingInfo.country];
-            } else {
-                countryName = landingInfo.country || landingInfo.region || "";
-            }
+            let countryName = landingInfo.country && countryMap[landingInfo.country]
+                ? countryMap[landingInfo.country]
+                : landingInfo.country || landingInfo.region || "";
+
+            const displayLandingIp = maskIP ? maskIp(landingInfo.ip) : landingInfo.ip;
 
             landingHtml = 
-                `IP：${landingInfo.ip}<br>` +
+                `IP：${displayLandingIp}<br>` +
                 `位置：${countryName}<br>` +
                 `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
@@ -114,8 +121,10 @@ const countryMap = {
                 }
             }
 
+            const displayEntryIp = maskIP ? maskIp(entryIp) : entryIp;
+
             entryHtml = 
-                `IP：${entryIp}<br>` +
+                `IP：${displayEntryIp}<br>` +
                 `位置：${decoded.city || decoded.province || ""}<br>` +
                 `运营：${decoded.isp || decoded.operator || ""}<br>`;
         }
@@ -133,5 +142,4 @@ const countryMap = {
         </p>`;
 
     $done({ title: scriptName, htmlMessage: html });
-
-})();
+})()
