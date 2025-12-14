@@ -1,6 +1,9 @@
 #!name = 节点IP信息
 #!icon = https://cdn-icons-png.flaticon.com/256/7139/7139879.png
-#!date = 2025.12.6
+#!date = 2025.12.15
+
+[Argument]
+maskIP=switch, true, false, tag=隐藏IP
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/IPInfo.js, tag=IP信息, img-url=globe.asia.australia.fill
