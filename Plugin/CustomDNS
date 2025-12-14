@@ -1,6 +1,6 @@
 #!name = DNS映射
-#!icon = https://images.freeimages.com/clg/istock/previews/1064/106428231-cloud-servers-technology-icon-concept-computing-network-sign-data-center.jpg
-#!date = 2025.12.9
+#!icon = https://png.pngtree.com/png-vector/20220423/ourmid/pngtree-computer-server-icon-for-data-storage-and-network-technology-vector-png-image_45333002.jpg
+#!date = 2025.12.14
 
 [Host]
 *google* = server:8.8.8.8
