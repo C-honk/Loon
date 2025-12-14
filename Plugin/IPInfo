@@ -6,4 +6,4 @@
 maskIP=switch, true, false, tag=隐藏IP
 
 [Script]
-generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/IPInfo.js, tag=IP信息, img-url=globe.asia.australia.fill
+generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/IPInfo.js, tag=IP信息, argument=tag=[{maskIP}], img-url=globe.asia.australia.fill
