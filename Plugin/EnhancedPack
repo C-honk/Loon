@@ -1,0 +1,16 @@
+#!name = 增强脚本合集
+#!icon = https://cdn-icons-png.freepik.com/512/6112/6112200.png
+#!date = 2025.12.16
+
+[Argument]
+Spotify = switch, true, false, tag = Spotify音乐
+
+[Rewrite]
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+^https:\/\/spclient\.wg\.spotify\.com\/(watch-feed-entrypoints|ads\/v3\/ads|pendragon|merch-npv-service) mock-response-body data-type=text status-code=200
+
+[Script]
+http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Premium.js, requires-body=true, binary-body-mode=true, enable={Spotify}, tag=解锁处理
+
+[Mitm]
+hostname = spclient.wg.spotify.com,*-spclient.spotify.com
