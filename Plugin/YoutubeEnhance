@@ -1,11 +1,11 @@
-#!name = YouTube视频
+#!name = YouTubeMusic
 #!icon = https://i.pinimg.com/736x/d6/03/ee/d603eef985ad43e675030bbbb873c249.jpg
-#!date = 2025.12.2
+#!date = 2025.12.16
 
 [Argument]
-blockUpload = switch, true, false, tag = 上传按钮
-blockShorts = switch, true, false, tag = 短片按钮
-blockImmersive = switch, true, false, tag = 选段按钮
+blockUpload = switch, true, false, tag = 关闭视频上传
+blockShorts = switch, true, false, tag = 关闭短片视频
+blockImmersive = switch, true, false, tag = 关闭音乐选段
 
 [Rewrite]
 ^https:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
