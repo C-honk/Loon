@@ -1,6 +1,6 @@
 #!name = 哔哩哔哩
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/BilibiliPink.png
-#!date = 2025.12.2
+#!date = 2025.12.6
 
 [Rewrite]
 ^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials mock-response-body data-type=text status-code=200
