@@ -1,6 +1,9 @@
 #!name = 哔哩哔哩
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/BilibiliPink.png
-#!date = 2025.12.6
+#!date = 2025.12.16
+
+[Argument]
+purifyComment = switch, true, false, tag = 过滤评论区广告
 
 [Rewrite]
 ^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials mock-response-body data-type=text status-code=200
@@ -17,7 +20,7 @@
 
 [Script]
 http-request ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, tag=请求处理
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=广告处理
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=广告处理, argument=[{purifyComment}]
 
 [MitM]
 hostname = grpc.biliapi.net,app.bilibili.com,api.bilibili.com
