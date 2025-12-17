@@ -1,4 +1,5 @@
 #!name = 节点IP信息
+#!desc = 查询节点入口和落地的IP位置信息
 #!icon = https://cdn-icons-png.flaticon.com/256/7139/7139879.png
 #!date = 2025.12.15
 
