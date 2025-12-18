@@ -1,7 +1,7 @@
-#!name = DNS映射
+#!name = DNS配置
 #!desc = 代理请求走GoogleDNS解析
 #!icon = https://st2.depositphotos.com/6831718/9763/v/450/depositphotos_97630276-stock-illustration-server-icon-on-blue-background.jpg
-#!date = 2025.12.17
+#!date = 2025.12.18
 
 [Host]
 *google* = server:8.8.8.8
