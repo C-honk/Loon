@@ -1,7 +1,7 @@
 #!name = 订阅管理工具
-#!desc = 统一管理多个机场进行高级自定义处理
+#!desc = 管理多个机场进行高级自定义处理
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Sub-Store.png
-#!date = 2025.12.17
+#!date = 2025.12.22
 
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, tag=后端处理
