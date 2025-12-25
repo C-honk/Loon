@@ -1,4 +1,4 @@
-// 2025.12.15
+// 2025.12.25
 const scriptName = "节点信息查询";
 const countryMap = {
     "HK": "香港",
@@ -68,7 +68,7 @@ const countryMap = {
             }
 
             landingHtml = 
-                `IP：${landingInfo.ip}<br>` +
+                `IP址：${landingInfo.ip}<br>` +
                 `位置：${countryName}<br>` +
                 `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
@@ -114,7 +114,7 @@ const countryMap = {
             }
 
             entryHtml = 
-                `IP：${entryIp}<br>` +
+                `IP址：${entryIp}<br>` +
                 `位置：${decoded.city || decoded.province || ""}<br>` +
                 `运营：${decoded.isp || decoded.operator || ""}<br>`;
         }
