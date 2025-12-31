@@ -68,7 +68,7 @@ const countryMap = {
             }
 
             landingHtml = 
-                `IP地址：${landingInfo.ip}<br>` +
+                `IP：${landingInfo.ip}<br>` +
                 `所在地：${countryName}<br>` +
                 `${landingInfo.org ? `运营商：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
@@ -114,7 +114,7 @@ const countryMap = {
             }
 
             entryHtml = 
-                `IP地址：${entryIp}<br>` +
+                `IP：${entryIp}<br>` +
                 `所在地：${decoded.city || decoded.province || ""}<br>` +
                 `运营商：${decoded.isp || decoded.operator || ""}<br>`;
         }
@@ -127,7 +127,7 @@ const countryMap = {
             <br>
             ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
             ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
-            节点：${nodeName}<br>
+            节点 ➞ ${nodeName}<br>
             ${errorLogs.length ? `<br><span style="color:red;">${errorLogs.join("<br>")}</span>` : ""}
         </p>`;
 
