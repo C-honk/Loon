@@ -1,7 +1,6 @@
 #!name = 哔哩哔哩
-#!desc = 屏蔽客户端广告精简首页和其他UI内容
-#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/BilibiliPink.png
-#!date = 2025.12.17
+#!icon = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/03CNSoft/bilibili.png
+#!date = 2025.12.31
 
 [Argument]
 purifyComment = switch, true, false, tag = 过滤评论区广告
