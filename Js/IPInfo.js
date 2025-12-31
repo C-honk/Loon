@@ -1,5 +1,5 @@
-// 2025.12.25
-const scriptName = "节点信息查询";
+// 2025.12.31
+const scriptName = "IP信息查询";
 const countryMap = {
     "HK": "香港",
     "TW": "台湾",
@@ -68,9 +68,9 @@ const countryMap = {
             }
 
             landingHtml = 
-                `IP址：${landingInfo.ip}<br>` +
-                `位置：${countryName}<br>` +
-                `${landingInfo.org ? `运营：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
+                `IP地址：${landingInfo.ip}<br>` +
+                `所在地：${countryName}<br>` +
+                `${landingInfo.org ? `运营商：${landingInfo.org.replace(/^AS\d+\s*/, "")}<br>` : ""}`;
         }
     } catch (err) {
         errorLogs.push(`落地：${err.message}`);
@@ -114,9 +114,9 @@ const countryMap = {
             }
 
             entryHtml = 
-                `IP址：${entryIp}<br>` +
-                `位置：${decoded.city || decoded.province || ""}<br>` +
-                `运营：${decoded.isp || decoded.operator || ""}<br>`;
+                `IP地址：${entryIp}<br>` +
+                `所在地：${decoded.city || decoded.province || ""}<br>` +
+                `运营商：${decoded.isp || decoded.operator || ""}<br>`;
         }
     } catch (err) {
         errorLogs.push(`入口：${err.message}`);
