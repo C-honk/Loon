@@ -2,60 +2,8 @@
 #!icon = https://st2.depositphotos.com/6831718/9763/v/450/depositphotos_97630276-stock-illustration-server-icon-on-blue-background.jpg
 #!date = 2025.12.31
 
-[Rule]
-DOMAIN,dns.google,PROXY
+[Argument]
+dns = select,"https://dns.google/dns-query","8.8.8.8",tag= DNS
 
 [Host]
-*google* = server:https://dns.google/dns-query
-*gmail* = server:https://dns.google/dns-query
-*youtube* = server:https://dns.google/dns-query
-*facebook* = server:https://dns.google/dns-query
-*twitter* = server:https://dns.google/dns-query
-*instagram* = server:https://dns.google/dns-query
-*linkedin* = server:https://dns.google/dns-query
-*reddit* = server:https://dns.google/dns-query
-*wikipedia* = server:https://dns.google/dns-query
-*github* = server:https://dns.google/dns-query
-*stackoverflow* = server:https://dns.google/dns-query
-*pinterest* = server:https://dns.google/dns-query
-*tumblr* = server:https://dns.google/dns-query
-*netflix* = server:https://dns.google/dns-query
-*primevideo* = server:https://dns.google/dns-query
-*amazon* = server:https://dns.google/dns-query
-*ebay* = server:https://dns.google/dns-query
-*paypal* = server:https://dns.google/dns-query
-*dropbox* = server:https://dns.google/dns-query
-*quora* = server:https://dns.google/dns-query
-*spotify* = server:https://dns.google/dns-query
-*tiktok* = server:https://dns.google/dns-query
-*medium* = server:https://dns.google/dns-query
-*soundcloud* = server:https://dns.google/dns-query
-*vimeo* = server:https://dns.google/dns-query
-*imdb* = server:https://dns.google/dns-query
-*rottentomatoes* = server:https://dns.google/dns-query
-*bbc* = server:https://dns.google/dns-query
-*cnn* = server:https://dns.google/dns-query
-*nytimes* = server:https://dns.google/dns-query
-*forbes* = server:https://dns.google/dns-query
-*theverge* = server:https://dns.google/dns-query
-*wired* = server:https://dns.google/dns-query
-*techcrunch* = server:https://dns.google/dns-query
-*huffpost* = server:https://dns.google/dns-query
-*aliexpress* = server:https://dns.google/dns-query
-*ytimg* = server:https://dns.google/dns-query
-*slack* = server:https://dns.google/dns-query
-*browserscan* = server:https://dns.google/dns-query
-*telegram* = server:https://dns.google/dns-query
-*discord* = server:https://dns.google/dns-query
-*twitch* = server:https://dns.google/dns-query
-*surfshark* = server:https://dns.google/dns-query
-*mozilla* = server:https://dns.google/dns-query
-*ipleak* = server:https://dns.google/dns-query
-*blogspot* = server:https://dns.google/dns-query
-*wordpress* = server:https://dns.google/dns-query
-*wikihow* = server:https://dns.google/dns-query
-*archive.org* = server:https://dns.google/dns-query
-*ggpht* = server:https://dns.google/dns-query
-*washing​tonpost* = server:https://dns.google/dns-query
-*foxnews* = server:https://dns.google/dns-query
-*bloomberg* = server:https://dns.google/dns-query
+*google* = server:dn
