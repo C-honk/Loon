@@ -1,0 +1,30 @@
+#!name = DNS配置
+#!desc = 域名映射代理服务
+#!icon = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/05icon/NAS(2).png
+#!date = 2026.2.8
+
+[Host]
+*google* = server:8.8.8.8
+*facebook* = server:8.8.8.8
+*instagram* = server:8.8.8.8
+*twitter* = server:8.8.8.8
+*whatsapp* = server:8.8.8.8
+*telegram* = server:1.1.1.1
+*line* = server:8.8.8.8
+*discord* = server:1.1.1.1
+*tiktok* = server:1.1.1.1
+*youtube* = server:8.8.8.8
+*threads* = server:8.8.8.8
+*snapchat* = server:8.8.8.8
+*messenger* = server:8.8.8.8
+*reddit* = server:1.1.1.1
+*linkedin* = server:8.8.8.8
+*pinterest* = server:1.1.1.1
+*quora* = server:1.1.1.1
+*clubhouse* = server:1.1.1.1
+*tumblr* = server:8.8.8.8
+*fbcdn* = server:8.8.8.8
+*twimg* = server:8.8.8.8
+*t.me* = server:1.1.1.1
+*chatgpt* = server:8.8.8.8
+*openai* = server:8.8.8.8
