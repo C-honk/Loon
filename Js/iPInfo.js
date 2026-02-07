@@ -126,7 +126,7 @@ const countryMap = {
             <br>
             ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
             ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
-            节点 ➞ ${nodeName}<br>
+            选中 ➞ ${nodeName}<br>
             ${errorLogs.length ? `<br><span style="color:red;">${errorLogs.join("<br>")}</span>` : ""}
         </p>`;
 
