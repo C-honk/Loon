@@ -1,6 +1,6 @@
 #!name = DNS配置
 #!desc = 域名映射代理服务
-#!icon = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/05icon/NAS(2).png
+#!icon = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/05icon/qunhuiguanjia.png
 #!date = 2026.2.8
 
 [Host]
