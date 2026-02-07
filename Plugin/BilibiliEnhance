@@ -20,7 +20,7 @@ purifyComment = switch, true, false, tag = 过滤评论区广告
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad response-body-json-jq '.data.ipad_recommend_sections|= map(select(.id|IN(758,759,760,792,793,2542,794)|not))|.data.ipad_more_sections|=map(select(.id|IN(1070,965)|not)|if .id==798 then .title="我的设置" else . end)|del(.data.ipad_upper_sections)'
 
 [Script]
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=修改处理, argument=[{purifyComment}]
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=广告处理, argument=[{purifyComment}]
 
 [MitM]
 hostname = grpc.biliapi.net,app.bilibili.com,api.bilibili.com
