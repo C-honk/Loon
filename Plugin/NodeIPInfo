@@ -1,7 +1,7 @@
 #!name = IP信息
 #!desc = 提供查看节点入口和落地信息
-#!icon = https://cdn-icons-png.flaticon.com/256/7139/7139879.png
-#!date = 2026.2.7
+#!icon = https://play-lh.googleusercontent.com/ZBeAOPf7hgMFl6mFVan23zPg3tRwLSfLYx_kzY5vi7tF1iU0D8IWbzNX5BjquuMgwAk
+#!date = 2026.2.15
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/iPInfo.js, tag=IP信息, img-url=globe.asia.australia.fill
