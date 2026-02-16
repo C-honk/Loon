@@ -1,6 +1,5 @@
 #!name = 订阅管理
 #!desc = 机场订阅管理工具
-#!openUrl = https://sub.store
 #!icon = https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
 
 [Argument]
@@ -9,8 +8,6 @@ cron=input, "55 23 * * *", tag=定时参数, desc=这里需要输入符合CRON�
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=后端
 http-request ^https:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, timeout=120, tag=前端
-
-cron {cron} script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, timeout=120, tag=定时任务
 
 [MITM]
 hostname=sub.store
