@@ -1,7 +1,6 @@
 #!name = Spotify音乐
 #!desc = 过滤客户端广告解锁订阅权限
 #!icon = https://cdn.jim-nielsen.com/watchos/512/spotify-music-and-podcasts-2020-03-19.png?rf=1024
-#!date = 2026.2.7
 
 [Rewrite]
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
