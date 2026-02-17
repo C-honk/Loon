@@ -1,5 +1,4 @@
-const args = $argument ? Object.fromEntries($argument.split("&").map(item => item.split("="))) : {};
-const shouldMask = args.mask === "true";
+let shouldMask = $argument && $argument.split(',')[0] === "true";
 
 const scriptName = "IP信息查询";
 
