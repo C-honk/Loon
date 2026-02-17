@@ -1,4 +1,4 @@
-let shouldMask = $argument && $argument.split(',')[0] === "true";
+let shouldMask = $argument && $argument.includes("true");
 
 const scriptName = "IP信息查询";
 
