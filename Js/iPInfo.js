@@ -47,6 +47,7 @@ const countryMap = {
     let landingHtml = "";
     let errorLogs = [];
 
+    // --- 落地信息查询 ---
     try {
         const landingInfo = await new Promise((resolve, reject) => {
             const timer = setTimeout(() => reject(new Error("请求超时")), 5000);
@@ -75,6 +76,7 @@ const countryMap = {
         errorLogs.push(`落地：${err.message}`);
     }
 
+    // --- 入口信息查询 ---
     try {
         let entryIp = nodeAddress;
         if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(nodeAddress)) {
@@ -121,11 +123,12 @@ const countryMap = {
         errorLogs.push(`入口：${err.message}`);
     }
 
+    // --- 最终 HTML 渲染 ---
     const html = `
         <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.4;">
             <br>
-            ${entryHtml ? `入口位置<br>${entryHtml}<br>` : ""}
-            ${landingHtml ? `落地位置<br>${landingHtml}<br>` : ""}
+            ${entryHtml ? `<span style="color:orange;">入口位置</span><br>${entryHtml}<br>` : ""}
+            ${landingHtml ? `<span style="color:#007AFF;">落地位置</span><br>${landingHtml}<br>` : ""}
             选中 ➞ ${nodeName}<br>
             ${errorLogs.length ? `<br><span style="color:red;">${errorLogs.join("<br>")}</span>` : ""}
         </p>`;
