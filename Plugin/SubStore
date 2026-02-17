@@ -1,9 +1,7 @@
 #!name = 订阅管理
-#!desc = 机场订阅管理工具
+#!desc = 机场订阅自定义处理工具
 #!icon = https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
-
-[Argument]
-cron=input, "55 23 * * *", tag=定时参数, desc=这里需要输入符合CRON表达式的参数
+#!date = 2026.2.17
 
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=后端
