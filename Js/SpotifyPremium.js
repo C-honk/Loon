@@ -4,8 +4,9 @@ const spotifyJson = {"options":{"java_package":"com.smile.spotify.model"},"neste
 
 const SpotifyFeedRes = protobuf.Type.fromJSON("SpotifyFeedRes",{"fields":{"sections":{"id":1,"type":"Section","rule":"repeated"},"header":{"id":2,"type":"bytes","rule":"repeated"}},"nested":{"Section":{"fields":{"inner_msg":{"id":1,"type":"InnerMsg","rule":"repeated"}}},"InnerMsg":{"fields":{"content":{"id":4,"type":"Content","rule":"repeated"},"unknown_field1":{"id":1,"type":"bytes","rule":"repeated"},"unknown_field2":{"id":2,"type":"bytes","rule":"repeated"},"unknown_field3":{"id":3,"type":"bytes","rule":"repeated"}}},"Content":{"fields":{"component":{"id":1,"type":"Component","rule":"repeated"}}},"Component":{"fields":{"text_data":{"id":1,"type":"TextData","rule":"repeated"}}},"TextData":{"fields":{"title":{"id":1,"type":"string"}}}}});
 
-const resStatus = $response.status ? $response.status : $response.statusCode;
+const ScrollRes = protobuf.Type.fromJSON("ScrollRes",{"fields":{"sections":{"id":1,"type":"ScrollSection","rule":"repeated"}},"nested":{"ScrollSection":{"fields":{"inner_msg":{"id":1,"type":"ScrollInnerMsg","rule":"repeated"}}},"ScrollInnerMsg":{"fields":{"field1":{"id":1,"type":"bytes"},"field2":{"id":2,"type":"bytes"},"inner_content":{"id":3,"type":"ScrollInnerContent","rule":"repeated"},"field4":{"id":4,"type":"bytes"},"field5":{"id":5,"type":"bytes"},"field8":{"id":8,"type":"bytes"},"section_id":{"id":23,"type":"ScrollSectionId","rule":"repeated"}}},"ScrollInnerContent":{"fields":{"card_items":{"id":2,"type":"ScrollCardItem","rule":"repeated"},"other":{"id":1,"type":"bytes"}}},"ScrollCardItem":{"fields":{"item_wrapper":{"id":1,"type":"ScrollItemWrapper","rule":"repeated"},"unknown":{"id":2,"type":"bytes"}}},"ScrollItemWrapper":{"fields":{"display_name":{"id":4,"type":"string"},"raw_other":{"id":1,"type":"bytes"},"raw_uri":{"id":2,"type":"bytes"},"raw_img":{"id":6,"type":"bytes"}}},"ScrollSectionId":{"fields":{"id":{"id":1,"type":"string"}}}}});
 
+const resStatus = $response.status ? $response.status : $response.statusCode;
 if (resStatus !== 200) {
   $done({});
 } else {
@@ -19,7 +20,6 @@ if (resStatus !== 200) {
     if ((url.includes("bootstrap/v1/bootstrap") || url.includes("user-customization-service/v1/customize")) && method === "POST") {
       const root = protobuf.Root.fromJSON(spotifyJson);
       let accountAttributesMapObj;
-
       if (url.includes("bootstrap/v1/bootstrap")) {
         const type = root.lookupType("BootstrapResponse");
         const message = type.decode(binaryBody);
@@ -34,7 +34,6 @@ if (resStatus !== 200) {
         body = type.encode(message).finish();
       }
     }
-
     else if (url.includes("browsita/v1/browse")) {
       const message = SpotifyFeedRes.decode(binaryBody);
       if (message.sections) {
@@ -61,6 +60,23 @@ if (resStatus !== 200) {
       }
       body = SpotifyFeedRes.encode(message).finish();
     }
+    else if (/scrollsita\/v1\/scroll/i.test(url)) {
+      const message = ScrollRes.decode(binaryBody);
+      const targets = ["spotify:section:0JQ5DABRtFWApcy61XJEwt", "spotify:section:0JQ5DB6s3cssW5Bo6cGq1L"];
+      if (message.sections) {
+        message.sections.forEach(section => {
+          if (section.inner_msg) {
+            section.inner_msg = section.inner_msg.filter(inner => {
+              if (inner.section_id) {
+                return !inner.section_id.some(s => targets.includes(s.id));
+              }
+              return true;
+            });
+          }
+        });
+      }
+      body = ScrollRes.encode(message).finish();
+    }
     else {
       $done({});
       return;
@@ -71,7 +87,6 @@ if (resStatus !== 200) {
     } else {
       $done({ body });
     }
-
   } catch (e) {
     $done({});
   }
