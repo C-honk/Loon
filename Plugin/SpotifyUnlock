@@ -1,7 +1,7 @@
 #!name = SpotifyMusic
 #!desc = 过滤客户端广告解锁订阅权限
 #!icon = https://cdn.jim-nielsen.com/watchos/512/spotify-music-and-podcasts-2020-03-19.png?rf=1024
-#!date = 2026.2.17
+#!date = 2026.2.18
 
 [Rewrite]
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
@@ -9,6 +9,7 @@
 
 [Script]
 http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/SpotifyPremium.js, requires-body=true, binary-body-mode=true, tag=解锁处理
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/browsita\/v1\/browse script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/SpotifyPremium.js, requires-body=true, binary-body-mode=true, tag=搜索处理
 
 [Mitm]
 hostname = spclient.wg.spotify.com,*-spclient.spotify.com
