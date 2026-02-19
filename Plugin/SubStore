@@ -1,11 +1,11 @@
 #!name = 订阅管理
-#!desc = 机场订阅自定义处理工具
+#!desc = 多个机场订阅自定义处理工具
 #!icon = https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
-#!date = 2026.2.17
+#!date = 2026.2.20
 
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=后端
 http-request ^https:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, timeout=120, tag=前端
 
 [MITM]
-hostname=sub.store
+hostname = sub.store
