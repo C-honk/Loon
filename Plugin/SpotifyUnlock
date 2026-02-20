@@ -6,7 +6,7 @@
 [Script]
 http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Premium-Unlock.js, requires-body=true, binary-body-mode=true, tag=解锁处理
 http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/browsita\/v1\/browse script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Spotify-Pure.js, requires-body=true, binary-body-mode=true, tag=搜索处理
-http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/scrollsita\/v1\/scroll script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Spotif-Pure.js, requires-body=true, binary-body-mode=true, tag=播放处理
+http-response ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/scrollsita\/v1\/scroll script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Spotify-Pure.js, requires-body=true, binary-body-mode=true, tag=播放处理
 
 [Mitm]
 hostname = spclient.wg.spotify.com,*-spclient.spotify.com
