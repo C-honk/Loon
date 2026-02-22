@@ -4,8 +4,8 @@
 #!date = 2026.2.22
 
 [Rewrite]
-^https:\/\/gateway\.kugou\.com\/youth\/v2\/activity\/task_list reject-200
 ^https:\/\/gateway\.kugou\.com\/goddess\/v1\/content\/biz_list reject-200
+^https:\/\/gateway\.kugou\.com\/youth\/api\/user\/v1\/init response-body-json-jq '.data.ad|=map_values(0)|.data.ad_play_model|=map_values(0)|.data.mode_config.mapParams.ad_get="0"|.data.ad_activity.banner_rate="0,0,0"|.data.ad_activity.popup_rate="0,0,0"'
 ^https:\/\/gateway\.kugou\.com\/ads.service/v2/lite_v_splash response-header-del client-tmeab-testad
 ^https:\/\/gateway\.kugou\.com\/ads.service/v2/lite_v_splash response-body-json-jq '.data={}'
 ^https:\/\/gateway\.kugou\.com\/ads\.gateway\/v2\/lite_v_popup response-body-json-jq '.data.ads={}'
