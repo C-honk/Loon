@@ -4,14 +4,12 @@
 #!date = 2026.2.23
 
 [Rewrite]
-^https:\/\/gateway\.kugou\.com\/youth\/v2\/activity\/task_list reject-200
-^https:\/\/gateway\.kugou\.com\/ads\.gateway\/v2\/lite_v_search_no_focus reject-200
-^https:\/\/gateway\.kugou\.com\/ads\.gateway\/v2\/lite_v_vip_center reject-200
 ^https:\/\/gateway\.kugou\.com\/goddess\/v1\/content\/biz_list reject-200
-^https:\/\/gateway\.kugou\.com\/ads.service\/v2\/lite_v_splash response-header-del client-tmeab-testad
-^https:\/\/gateway\.kugou\.com\/ads.service\/v2\/lite_v_splash response-body-json-jq '.data.config.boot_fetch_ms=0|.data.config.boot_timeout_ms=0|.data.config.boot_display_interval=999999|.data.config.limit_times=0'
-^https:\/\/gateway\.kugou\.com\/ads\.gateway\/v2\/lite_v_popup response-body-json-jq '.data.ads={}'
+^https:\/\/gateway\.kugou\.com\/ads\.gateway\/v2\/lite_v_popup reject-200
+^https:\/\/gateway\.kugou\.com\/ads.service\/v2\/lite_v_splash response-header-del client-tmeab-testad clientolexpids clientolexpparams
+^https:\/\/gateway\.kugou\.com\/ads.service\/v2\/lite_v_splash response-body-json-jq '.data.config.gdt_base_price=0|.data.config.front_fetch_ms=0|.data.config.front_timeout_ms=0|.data.config.boot_fetch_ms=0|.data.config.boot_timeout_ms=0|.data.config.front_request_interval=31536000|.data.config.boot_display_interval=31536000|.data.config.sdk=""|.data.config.limit_times=0'
 ^https:\/\/gateway\.kugou\.com\/youth\/v1\/channel\/tab_list response-body-json-jq '.data.list|=map(select([.tab_id]|inside([-1,2,3,5])|not))'
+^https:\/\/gateway\.kugou\.com\/youth\/v1\/ab\/tmeab\?ab_source=TMEAB0tgviptype0type response-body-json-jq '.data.TMEAB0tgviptype0type.mapParams|=(.hide_tvbar=1|.Insert_ads_mode=0|.Insert_ads_timing=-1|.Insert_ads_drag=0|.Insert_ads_point="0:0")'
 
 [Script]
 http-response ^https:\/\/gateway\.kugou\.com\/youth\/v1\/ab\/tmeab\?ab_source=(TMEAB0WelcomePage0type|ysenter) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Kugou.js, requires-body=true, timeout=10, tag=配置处理
