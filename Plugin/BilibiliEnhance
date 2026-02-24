@@ -7,7 +7,7 @@
 ^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials reject-200
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/cinema\/tab response-body-json-jq 'del(.result.modules[]|select(.module_id==1633))'
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/bangumi response-body-json-jq 'del(.result.modules[]|select(.module_id==1639))'
-^https:\/\/app\.bilibili\.com\/x\/v2\/splash response-body-json-jq '.data.list=[]|.data.show=[]|.data.min_interval=2400000000'
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash response-body-json-jq '.data.list=[]|.data.show=[]|.data.min_interval=630720000|.data.pull_interval=630720000'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search response-body-json-jq '.data|=map(select(.type!="recommend")|del(.search_ranking_meta))'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story response-body-json-jq '.data.items|=map(select(.is_ad!=true and (has("ad_info")|not) and .goto!="ad_av" and .goto!="vertical_ad"))'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index/? response-body-json-jq '.data.items|=map(select(.ad_info.is_ad_loc!=true and (.card_type|test("banner_")|not)))'
