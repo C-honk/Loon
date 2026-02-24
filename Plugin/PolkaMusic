@@ -1,11 +1,10 @@
 #!name = 波点音乐
-#!desc = 精简界面增强使用体验
+#!desc = 精简界面增屏蔽部分广告
 #!icon = https://image.diyiyou.com/diyiyou/imgfile/20260125/25173448hchd.jpg
 #!date = 2026.2.25
 
 [Rewrite]
 ^https:\/\/bd-api\.kuwo\.cn\/api\/(service\/banner\/positions|search\/topic\/word\/list|popup\/start\/info|pay\/vip\/lowPriceText) reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/advert\/config response-body-json-jq '.data.rewardTimeSecond=0|.data.rewardTimeFirst=0|.data.invalidTime=999999|.data.screenTimeout=0|.data.hotScreenTimeout=0|.data.flashAd.duration=0|.data.mvDuration=0|.data.twiceMvDuration=0|.data.paySingleTitle="即刻解锁"|.data.payAllTitle="即刻解锁"'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/comments\/v3\/topInfo response-body-json-jq '.data.musicVo.payInfo.listen_fragment="0"|.data.musicVo.showAd=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/sound\/effect\/list response-body-json-jq '.data.list[].vipType="free"|.data.list[].audition=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=false|.data.warmStartDialog.count=0|.data.offlineFavTipsGuide=0'
