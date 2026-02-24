@@ -10,7 +10,7 @@
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/sound\/effect\/list response-body-json-jq '.data.list[].vipType="free"|.data.list[].audition=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=false|.data.warmStartDialog.count=0|.data.offlineFavTipsGuide=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter response-body-json-jq '.data.fristVipSingleBtn=0|.data.fristVipListBtn=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/free\/config response-body-json-jq '.data.allDayConfig.fmRewards=[]|.data.allDayConfig.watched=0|.data.allDayConfig.needWatch=0'
+^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/free\/config response-body-json-jq '.data.allDayConfig.watched=0|.data.allDayConfig.fmRewards[].watched=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/home\/index response-body-json-jq '.data.moduleList|=map(select(.type|IN(6,2,1,8)|not))'
 ^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info response-body-json-jq '.data.mapTestInfo.BDLaunchApp.mapParams.launchApp="0"|.data.mapTestInfo.BDLaunchApp.mapParams.adPassId="0"|.data.mapTestInfo.MvTryShowAds.mapParams.ShowAds_mv="0"|.data.mapTestInfo.MvTryShowAds.mapParams.ShowAds_try="0"|.data.mapTestInfo.CommentADPosition.mapParams.PositionComment="0"|.data.mapTestInfo.DiscoverADPosition.mapParams.PositionDiscovery="0"|.data.mapTestInfo.WZDownloadAd.mapParams.useCoinControl="1"|.data.mapTestInfo.DownloadAd.mapParams.ad_count="0"|.data.mapTestInfo.adExpiresFreemodeShowad.mapParams.rewardAdLocalCache="0"|.data.mapTestInfo.adExpiresFreemodeShowad.mapParams.cacheCount="0"|.data.mapTestInfo.adExpiresFreemodeShowad.mapParams.rewardReqNewBeforeShow="0"|.data.mapTestInfo.adExpiresFreemodeShowad.mapParams.allowRepeatRequest="0"'
 
