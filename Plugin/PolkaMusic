@@ -4,6 +4,7 @@
 #!date = 2026.2.25
 
 [Rewrite]
+^https:\/\/ad\.tencentmusic\.com\/(sdk|config) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/(service\/banner\/positions|search\/topic\/word\/list|popup\/start\/info|pay\/vip\/lowPriceText) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/comments\/v3\/topInfo response-body-json-jq '.data.musicVo.payInfo.listen_fragment="0"|.data.musicVo.showAd=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/sound\/effect\/list response-body-json-jq '.data.list[].vipType="free"|.data.list[].audition=0'
@@ -14,4 +15,4 @@
 ^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info response-body-json-jq '.data.mapTestInfo.BDLaunchApp.mapParams.launchApp="0"|.data.mapTestInfo.BDLaunchApp.mapParams.adPassId="0"|.data.mapTestInfo.MvTryShowAds.mapParams.ShowAds_mv="0"|.data.mapTestInfo.MvTryShowAds.mapParams.ShowAds_try="0"|.data.mapTestInfo.CommentADPosition.mapParams.PositionComment="0"|.data.mapTestInfo.DiscoverADPosition.mapParams.PositionDiscovery="0"|.data.mapTestInfo.WZDownloadAd.mapParams.useCoinControl="1"|.data.mapTestInfo.DownloadAd.mapParams.ad_count="0"|.data.mapTestInfo.adExpiresFreemodeShowad.mapParams.rewardAdLocalCache="0"'
 
 [Mitm]
-hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn
+hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn,ad.tencentmusic.com
