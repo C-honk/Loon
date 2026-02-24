@@ -5,7 +5,7 @@
 
 [Rewrite]
 ^https:\/\/ad\.tencentmusic\.com\/(sdk|config) reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/(service\/banner\/positions|search\/topic\/word\/list|popup\/start\/info|pay\/vip\/lowPriceText) reject-200
+^https:\/\/bd-api\.kuwo\.cn\/api\/(service\/(advert\/config|banner\/positions)|play\/advert\/info|search\/topic\/word\/list|popup\/start\/info|pay\/vip\/lowPriceText) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/comments\/v3\/topInfo response-body-json-jq '.data.musicVo.payInfo.listen_fragment="0"|.data.musicVo.showAd=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/sound\/effect\/list response-body-json-jq '.data.list[].vipType="free"|.data.list[].audition=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=false|.data.warmStartDialog.count=0|.data.offlineFavTipsGuide=0'
