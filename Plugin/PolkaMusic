@@ -7,8 +7,8 @@
 ^https:\/\/ad\.tencentmusic\.com\/(sdk|config) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/(pay\/vip\/lowPriceText|search\/topic\/word\/list|pay/vip/invitation/assist/popup|service\/banner\/positions|pay\/vip\/invitation\/swell\/popup) reject-200
 
-^https:\/\/bd-api\.kuwo\.cn\/api\/ucenter\/users\/(login|pub) response-body-json-jq '.data.payInfo.isActVipBoolean=true|.data.payInfo.actVipType=1|.data.payInfo.actExpireDate=2524579199000|.data.payInfo.isVip=1|.data.userInfo.isVip=1|.data.userInfo.vipType=2'
-^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/free\/config response-body-json-jq '.data.payInfo.isVip=1|.data.payInfo.isVipBoolean=true|.data.payInfo.isActVipBoolean=true|.data.payInfo.vipType=2|.data.payInfo.actVipType=1|.data.payInfo.actExpireDate=2524579199000|.data.freeInfo.lossExpireDate=2524579199|.data.freeInfo.freeExpireDate=2524579199'
+^https:\/\/bd-api\.kuwo\.cn\/api\/ucenter\/users\/(login|pub) response-body-json-jq '.data.payInfo.isActVipBoolean=true|.data.payInfo.actVipType=1|.data.payInfo.isVip=1|.data.userInfo.isVip=1|.data.userInfo.vipType=2'
+^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/free\/config response-body-json-jq '.data.payInfo.isVip=1|.data.payInfo.isVipBoolean=true|.data.payInfo.isActVipBoolean=true|.data.payInfo.vipType=2|.data.payInfo.actVipType=1'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/music\/info response-body-json-jq '.showAd=0|.downloadAdvert=0|.payInfo.downloadAdvert=0'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/music\/v2\/audioUrl response-body-json-jq '.data.bitrate=2000'
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all response-body-json-jq '.data.groupSign.adExitChange=0|.data.groupSign.adGuideTest=0|.data.groupSign.adStartAppDialog=0|.data.groupSign.immersivePlay=1|.data.conf.adDownListOpen=0|.data.conf.adGuidePopCount=0'
