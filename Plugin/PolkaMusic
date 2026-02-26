@@ -1,23 +1,16 @@
 #!name = 波点音乐
 #!desc = 精简UI界面和屏蔽部分广告
 #!icon = https://image.diyiyou.com/diyiyou/imgfile/20260125/25173448hchd.jpg
-#!date = 2026.2.25
+#!date = 2026.2.27
+
+argument=[{解锁播放}]
 
 [Rewrite]
-^https:\/\/ad\.tencentmusic\.com\/(sdk|config) reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/(pay\/vip\/lowPriceText|search\/topic\/word\/list|pay/vip/invitation/assist/popup|service\/banner\/positions|pay\/vip\/invitation\/swell\/popup) reject-200
+^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/advert\/info|service\/(banner\/positions|advert\/config|global\/config\/vipEnter)|search\/topic\/word\/list|pay\/vip\/(invitation\/(assist\/popup|swell)|lowPriceText)) response-body-json-jq '.data={}'
 
-^https:\/\/bd-api\.kuwo\.cn\/api\/ucenter\/users\/(login|pub) response-body-json-jq '.data.payInfo.isActVipBoolean=true|.data.payInfo.actVipType=1|.data.payInfo.isVip=1|.data.userInfo.isVip=1|.data.userInfo.vipType=2'
-^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/free\/config response-body-json-jq '.data.payInfo.isVip=1|.data.payInfo.isVipBoolean=true|.data.payInfo.isActVipBoolean=true|.data.payInfo.vipType=2|.data.payInfo.actVipType=1'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/music\/info response-body-json-jq '.showAd=0|.downloadAdvert=0|.payInfo.downloadAdvert=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/play\/music\/v2\/audioUrl response-body-json-jq '.data.bitrate=2000'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all response-body-json-jq '.data.groupSign.adExitChange=0|.data.groupSign.adGuideTest=0|.data.groupSign.adStartAppDialog=0|.data.groupSign.immersivePlay=1|.data.conf.adDownListOpen=0|.data.conf.adGuidePopCount=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/play\/sound\/effect\/list response-body-json-jq '.data.list[].vipType="free"|.data.list[].audition=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.idolTabShow=false|.data.showShopEntry=false|.data.offlineFavTipsGuide=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter response-body-json-jq '.data.fristVipSingleBtn=0|.data.fristVipListBtn=0'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/home\/index response-body-json-jq '.data.moduleList|=map(select(.type|IN(6,2,1,8)|not))'
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/advert\/config response-body-json-jq '.data|.screenSign=0|.screenColdBoot=0|.screenHotBoot=0|.startUpPopLimit=0|.warmStartPopupLimit=0|.mvAdvertSign=0|.openFreePlaySign=0|.freeListenSign=0|.FreeModVoiceReminder.is_try_play=0|.FreeModVoiceReminder.is_continue_play=0'
-^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info response-body-json-jq '.data.mapTestInfo|=(.BDLaunchApp.mapParams.launchApp="0"|.BDLaunchApp.mapParams.ad_type="0"|.insert.mapParams.is="0"|.DiscoverADPosition.mapParams.PositionDiscovery="0"|.CommentADPosition.mapParams.PositionComment="0"|.CommentADPosition.mapParams.CommentSingleRow="0"|.CommentADPosition.mapParams.showGif="0"|.MvTryShowAds.mapParams.ShowAds_mv="0"|.MvTryShowAds.mapParams.ShowAds_try="0"|.bodianmvdialog.mapParams.show="0"|.FreeModVoiceReminder.mapParams.is_try_play="0"|.FreeModVoiceReminder.mapParams.is_continue_play="0")'
+[Script]
+http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/music\/v2\/(audioUrl|checkRight)|service\/music\/info) script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/bdyy.js, requires-body=true, timeout=10, enable={解锁播放}, tag=播放解除
+http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(ucenter\/users\/(pub|login)|advert\/free\/config|play\/sound\/effect\/list|service\/(global\/config\/scene|home\/index)) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Polka.js, requires-body=true, timeout=10, tag=配置处理
 
 [Mitm]
-hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn,ad.tencentmusic.com
+hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn
