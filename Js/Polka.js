@@ -98,6 +98,4 @@ try{
     hasError=true;
 }
 
-if(!hasError) console.log("处理完成");
-
 $done({body});
