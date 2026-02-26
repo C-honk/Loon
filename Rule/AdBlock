@@ -279,7 +279,8 @@ DOMAIN-KEYWORD,ios-log.
 DOMAIN-KEYWORD,ioslog.
 DOMAIN-KEYWORD,pc-log.
 DOMAIN-KEYWORD,pclog.
-URL-REGEX,/\d+/resolve
+DOMAIN-KEYWORD,tmead.y.qq.com
+DOMAIN-KEYWORD,tmeadcomm.y.qq.com
 URL-REGEX,/\d+/sign_d
 URL-REGEX,^https?:\/\/.+?\.beacon\.qq\.com
 URL-REGEX,^https?:\/\/.+?\.l\.qq\.com
