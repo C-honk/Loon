@@ -1,0 +1,12 @@
+#!name = 微博轻享版
+#!desc = 屏蔽无用功能精简内容
+#!icon = https://pic.616pic.com/ys_img/00/10/42/OMbDmVyfhl.jpg
+#!date = 2026.2.28
+
+[Rewrite]
+^https:\/\/api\.weibo\.cn\/2\/statuses\/container_timeline_topic response-body-json-jq '.items[0].items=[]'
+^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center response-body-json-jq '.data.cards|=map(.items|=map(select(.type!="personal_vip" and .type!="ic_profile_wallpaper" and .type!="personal_topic" and .type!="personal_wallpaper")))'
+^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=trends response-body-json-jq '.data|={native_content:.native_content,search_topic:.search_topic,order:["search_topic","native_content"]}'
+
+[Mitm]
+hostname = api.weibo.cn,weibointl.api.weibo.cn
