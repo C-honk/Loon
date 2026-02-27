@@ -7,7 +7,7 @@ function safeSet(obj,key,value){
         obj[key]=value;
     }catch(e){
         hasError=true;
-        console.log(`处理失败>> ${key}`);
+        console.log(`处理失败>>>${key}`);
     }
 }
 
@@ -67,7 +67,7 @@ try{
             safeSet(obj.data,'showShopEntry',false);
             safeSet(obj.data,'idolTabShow',false);
             safeSet(obj.data,'playingPageCollectPagList',[]);
-            safeSet(obj.data,'adsNotFinishVipPop4DayInterval',999);
+            safeSet(obj.data,'adsNotFinishVipPop4DayInterval',9999);
             safeSet(obj.data,'AllDialogIntervals',9999);
             if(obj.data.warmStartDialog) safeSet(obj.data.warmStartDialog,'count',0);
             safeSet(obj.data,'offlineFavTipsGuide',0);
