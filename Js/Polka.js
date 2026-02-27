@@ -79,7 +79,7 @@ try{
     }
     else if(/api\/service\/home\/index/.test(url)){
         if(obj.data && Array.isArray(obj.data.moduleList)){
-            try{ obj.data.moduleList=obj.data.moduleList.filter(m=>![6,2,1,8].includes(m.type)) }catch(e){ hasError=true; }
+            try{ obj.data.moduleList=obj.data.moduleList.filter(m=>![6,2,1,8,9].includes(m.type)) }catch(e){ hasError=true; }
         }
     }
     else if(/api\/play\/sound\/effect\/list/.test(url)){
