@@ -1,7 +1,6 @@
 #!name = YouTube+Music
-#!desc = 过滤客户端广告增强使用体验
+#!desc = 更新于2026年2月28日
 #!icon = https://i.pinimg.com/736x/d6/03/ee/d603eef985ad43e675030bbbb873c249.jpg
-#!date = 2026.2.7
 
 [Argument]
 blockUpload = switch, true, false, tag = 关闭视频上传
