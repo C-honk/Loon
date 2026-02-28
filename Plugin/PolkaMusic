@@ -1,7 +1,6 @@
 #!name = 波点音乐
-#!desc = 屏蔽广告精简UI解锁会员播放
+#!desc = 更新于2026年2月28日
 #!icon = https://img.51wan.com/up/2025-12/2025035499939849.png
-#!date = 2026.2.28
 
 [Argument]
 VIPTracks=switch,true,false,tag=开启VIP播放
