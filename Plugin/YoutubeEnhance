@@ -1,17 +1,16 @@
-#!name = YouTube+Music
+#!name = YouTube
 #!desc = 更新于2026年2月28日
 #!icon = https://i.pinimg.com/736x/d6/03/ee/d603eef985ad43e675030bbbb873c249.jpg
 
 [Argument]
 blockUpload = switch, true, false, tag = 关闭视频上传
 blockShorts = switch, true, false, tag = 关闭短片视频
-blockImmersive = switch, true, false, tag = 关闭音乐选段
 
 [Rewrite]
 ^https:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
 
 [Script]
-http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, requires-body=true, binary-body-mode=true, tag=广告处理, argument=[{blockUpload},{blockShorts},{blockImmersive}]
+http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, requires-body=true, binary-body-mode=true, tag=广告处理, argument=[{blockUpload},{blockShorts}]
 
 [MitM]
 hostname = youtubei.googleapis.com,*.googlevideo.com
