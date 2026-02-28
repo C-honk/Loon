@@ -1,7 +1,6 @@
 #!name = 订阅管理
-#!desc = 多个机场订阅自定义处理工具
+#!desc = 更新于2026年2月28日
 #!icon = https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
-#!date = 2026.2.20
 
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=后端
