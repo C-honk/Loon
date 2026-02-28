@@ -1,7 +1,6 @@
 #!name = 哔哩哔哩
-#!desc = 体验一个没有广告的哔哩哔哩
+#!desc = 更新于2026年2月28日
 #!icon = https://i.pinimg.com/736x/f8/a4/de/f8a4de822bdd6ff9924d01d2ec9e8ff7.jpg
-#!date = 2026.2.27
 
 [Rewrite]
 ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ mock-response-body data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA" mock-data-is-base64=true
