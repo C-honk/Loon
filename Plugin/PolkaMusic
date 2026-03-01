@@ -9,18 +9,13 @@ VIP=switch,true,false,tag=开启VIP播放
 ^https:\/\/bd-api\.kuwo\.cn\/api\/advert\/earning\/app\/config reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/advert\/info reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/positions reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/advert\/config reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/resource\/recommend reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/invitation\/assist\/popup reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/invitation\/swell reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText reject-200
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/(banner\/positions|advert\/config|global\/config\/vipEnter|resource\/recommend) reject-200
+^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/(invitation\/assist\/popup|invitation\/swell|lowPriceText) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v2\/sidebar response-body-json-jq '.data.sidebar[].coverGif=""'
 
 [Script]
 http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/music\/v2\/(audioUrl|checkRight)|service\/music\/info) script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/bdyy.js, requires-body=true, timeout=10, enable={VIP}, tag=解锁播放
-http-response ^https:\/\/(bd-api\.kuwo\.cn\/api\/(ucenter\/users\/(pub|login)|advert\/free\/config|play\/sound\/effect\/list|service\/(global\/config\/scene|home\/index))|ab-bodian\.kuwo\.cn\/abtest\/ui\/info) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Polka.js, requires-body=true, timeout=10, tag=配置处理
+http-response ^https:\/\/(bd-api\.kuwo\.cn\/api\/(ucenter\/users\/(pub|login)|advert\/free\/config|play\/sound\/effect\/list|service\/(global\/config\/scene|home\/index|conf\/all))|ab-bodian\.kuwo\.cn\/abtest\/ui\/info) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Polka.js, requires-body=true, timeout=10, tag=配置处理
 
 [Mitm]
 hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn
