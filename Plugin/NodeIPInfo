@@ -2,9 +2,6 @@
 #!desc = 更新于2026年3月1日
 #!icon = https://lh3.googleusercontent.com/Dq-2ruLjMkrLplUQPR4hPSYhDWK_2996O37VUuCBjXQOoPeOUNx2567_NHKrmy3ssQfiyYhNhjrh046R9g4J4DCdajY=s128-rj-sc0x00ffffff
 
-[Rule]
-DOMAIN-SUFFIX,ipinfo.io,PROXY
-DOMAIN-SUFFIX,speedtest.cn,DIRECT
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/iPInfo.js, tag=IP信息, img-url=globe.asia.australia.fill
