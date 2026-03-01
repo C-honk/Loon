@@ -1,10 +1,10 @@
 #!name = YouTube
-#!desc = 更新于2026年2月28日
+#!desc = 更新于2026年3月1日
 #!icon = https://i.pinimg.com/736x/d6/03/ee/d603eef985ad43e675030bbbb873c249.jpg
 
 [Argument]
-blockUpload = switch, true, false, tag = 关闭视频上传
-blockShorts = switch, true, false, tag = 关闭短片视频
+blockUpload = switch, true, false, tag = 视频上传
+blockShorts = switch, true, false, tag = 短片视频
 
 [Rewrite]
 ^https:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
