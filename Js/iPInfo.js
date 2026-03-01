@@ -1,4 +1,4 @@
-const scriptName = "IP信息查询";
+const scriptName = "节点信息查询";
 const countryMap = {
     "HK": "香港",
     "TW": "台湾",
@@ -122,7 +122,7 @@ const countryMap = {
     }
 
     const html = `
-        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.4;">
+        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.1;">
             <br>
             ${entryHtml ? `<span style="color:orange;">入口位置</span><br>${entryHtml}<br>` : ""}
             ${landingHtml ? `<span style="color:#0AA1FF;">落地位置</span><br>${landingHtml}<br>` : ""}
