@@ -50,6 +50,24 @@ if (/api\/(ucenter\/users\/(pub|login)|advert\/free\/config)/.test(url)) {
     }
 }
 
+else if (/api\/service\/conf\/all/.test(url)) {
+    try {
+        let obj = JSON.parse(body);
+        let g = obj.data.groupSign;
+
+        g.adExitChange = 0;
+        g.adGuideTest = 0;
+        g.adStartAppDialog = 0;
+        g.playTips = 0;
+        g.freeDynamicChange = 0;
+
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[conf/all错误]：" + e);
+        $done({ body });
+    }
+}
+
 else if (/api\/service\/global\/config\/scene/.test(url)) {
     try {
         let obj = JSON.parse(body);
