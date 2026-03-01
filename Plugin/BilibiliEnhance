@@ -1,6 +1,6 @@
 #!name = 哔哩哔哩
 #!desc = 更新于2026年3月1日
-#!icon = https://i.pinimg.com/736x/f8/a4/de/f8a4de822bdd6ff9924d01d2ec9e8ff7.jpg
+#!icon = https://pic.vkxiazai.com/logo/260128/202601281730071963.png
 
 [Rewrite]
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? reject-200
