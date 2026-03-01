@@ -1,91 +1,107 @@
 let url = $request.url;
 let body = $response.body;
-let log = [];
 
-function safeSet(obj, key, value) {
+if (/api\/(ucenter\/users\/(pub|login)|advert\/free\/config)/.test(url)) {
     try {
-        obj[key] = value;
-    } catch (e) {
-        log.push(`处理失败>>${key}`);
-    }
-}
-
-try {
-    if (/api\/(ucenter\/users\/(pub|login)|advert\/free\/config)/.test(url)) {
         let obj = JSON.parse(body);
         const expireTime = new Date('2099-09-09T09:09:00+08:00').getTime();
 
         let p = obj.data.payInfo;
-        safeSet(p, "redFlower", 999);
-        safeSet(p, "isSignedBoolean", true);
-        safeSet(p, "isCtVipBoolean", true);
-        safeSet(p, "isCtPayVipBoolean", false);
-        safeSet(p, "ctExpireDate", expireTime);
-        safeSet(p, "isVip", 1);
-        safeSet(p, "signedCount", 999);
-        safeSet(p, "isVipBoolean", true);
-        safeSet(p, "isBigVipBoolean", true);
-        safeSet(p, "bigExpireDate", expireTime);
-        safeSet(p, "ctPayExpireDate", 0);
-        safeSet(p, "signType", 1);
-        safeSet(p, "bigPayExpireDate", 0);
-        safeSet(p, "actVipType", 0);
-        safeSet(p, "vipType", 1);
-        safeSet(p, "isBigPayVipBoolean", false);
-        safeSet(p, "payExpireDate", expireTime);
-        safeSet(p, "actExpireDate", expireTime);
-        safeSet(p, "isActVipBoolean", true);
-        safeSet(p, "isPayVipBoolean", true);
-        safeSet(p, "lastOrderPrice", 0);
-        safeSet(p, "lastOrderSigned", 0);
-        safeSet(p, "payVipType", 1);
-        safeSet(p, "isSigned", 1);
-        safeSet(p, "expireDate", expireTime);
+        p.redFlower = 999;
+        p.isSignedBoolean = true;
+        p.isCtVipBoolean = true;
+        p.isCtPayVipBoolean = false;
+        p.ctExpireDate = expireTime;
+        p.isVip = 1;
+        p.signedCount = 999;
+        p.isVipBoolean = true;
+        p.isBigVipBoolean = true;
+        p.bigExpireDate = expireTime;
+        p.ctPayExpireDate = 0;
+        p.signType = 1;
+        p.bigPayExpireDate = 0;
+        p.actVipType = 0;
+        p.vipType = 1;
+        p.isBigPayVipBoolean = false;
+        p.payExpireDate = expireTime;
+        p.actExpireDate = expireTime;
+        p.isActVipBoolean = true;
+        p.isPayVipBoolean = true;
+        p.lastOrderPrice = 0;
+        p.lastOrderSigned = 0;
+        p.payVipType = 1;
+        p.isSigned = 1;
+        p.expireDate = expireTime;
 
         let u = obj.data.userInfo;
-        safeSet(u, "status", 1);
-        safeSet(u, "isVip", 1);
-        safeSet(u, "vipType", 1);
-        safeSet(u, "gender", 1);
-        safeSet(u, "payVipType", 1);
-        safeSet(u, "authType", 1);
+        u.status = 1;
+        u.isVip = 1;
+        u.vipType = 1;
+        u.gender = 1;
+        u.payVipType = 1;
+        u.authType = 1;
 
-        try { delete obj.data.allDayConfig.fmRewards; } catch(e){ log.push("处理失败>>allDayConfig.fmRewards"); }
+        delete obj.data.allDayConfig.fmRewards;
 
-        body = JSON.stringify(obj);
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[pub|login|free错误]：" + e);
+        $done({ body });
     }
-    else if (/api\/service\/global\/config\/scene/.test(url)) {
+}
+
+else if (/api\/service\/global\/config\/scene/.test(url)) {
+    try {
         let obj = JSON.parse(body);
         let d = obj.data;
-        safeSet(d, "showShopEntry", false);
-        safeSet(d, "idolTabShow", false);
-        safeSet(d, "playingPageCollectPagList", []);
-        safeSet(d, "adsNotFinishVipPop4DayInterval", 9999);
-        safeSet(d, "AllDialogIntervals", 9999);
-        safeSet(d.warmStartDialog, "count", 0);
-        safeSet(d, "offlineFavTipsGuide", 0);
-        safeSet(d.downLoadZoneConfig, "freeTimeRemindTip", 0);
-        safeSet(d.iapNewConfig, "enable", 0);
-        safeSet(d.iapConfig, "enable", 0);
-        safeSet(d, "iosAudioSessionManager_ErrAlert", false);
+        d.showShopEntry = false;
+        d.idolTabShow = false;
+        d.playingPageCollectPagList = [];
+        d.adsNotFinishVipPop4DayInterval = 9999;
+        d.AllDialogIntervals = 9999;
+        d.warmStartDialog.count = 0;
+        d.offlineFavTipsGuide = 0;
+        d.downLoadZoneConfig.freeTimeRemindTip = 0;
+        d.iapNewConfig.enable = 0;
+        d.iapConfig.enable = 0;
+        d.iosAudioSessionManager_ErrAlert = false;
 
-        body = JSON.stringify(obj);
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[config/scene错误]：" + e);
+        $done({ body });
     }
-    else if (/api\/service\/home\/index/.test(url)) {
+}
+
+else if (/api\/service\/home\/index/.test(url)) {
+    try {
         let obj = JSON.parse(body);
-        obj.data.moduleList = obj.data.moduleList.filter(item => ![6,2,1,8,9].includes(item.type));
-        body = JSON.stringify(obj);
+        let list = obj.data.moduleList;
+        obj.data.moduleList = list.filter(item => ![6,2,1,8,9].includes(item.type));
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[home/index错误]：" + e);
+        $done({ body });
     }
-    else if (/api\/play\/sound\/effect\/list/.test(url)) {
+}
+
+else if (/api\/play\/sound\/effect\/list/.test(url)) {
+    try {
         let obj = JSON.parse(body);
         let list = obj.data.list;
         for (let i = 0; i < list.length; i++) {
-            safeSet(list[i], "vipType", 'free');
-            safeSet(list[i], "audition", 0);
+            list[i].vipType = 'free';
+            list[i].audition = 0;
         }
-        body = JSON.stringify(obj);
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[effect/list错误]：" + e);
+        $done({ body });
     }
-    else if (/abtest\/ui\/info/.test(url)) {
+}
+
+else if (/abtest\/ui\/info/.test(url)) {
+    try {
         let obj = JSON.parse(body);
         let map = obj.data.mapTestInfo;
         let modules = [
@@ -107,12 +123,15 @@ try {
             map.MvTryShowAds.mapParams
         ];
         for (let mod of modules) {
-            for (let key in mod) safeSet(mod, key, "0");
+            for (let key in mod) mod[key] = "0";
         }
-        body = JSON.stringify(obj);
+        $done({ body: JSON.stringify(obj) });
+    } catch (e) {
+        console.log("[ui/info错误]：" + e);
+        $done({ body });
     }
-} catch(e) {
-
 }
 
-$done({ body, log });
+else {
+    $done({ body });
+}
