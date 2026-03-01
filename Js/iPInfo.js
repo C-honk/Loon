@@ -122,13 +122,13 @@ const countryMap = {
     }
 
     const html = `
-        <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.1;">
-            <br>
-            ${entryHtml ? `<span style="color:orange;">入口位置</span><br>${entryHtml}<br>` : ""}
-            ${landingHtml ? `<span style="color:#0AA1FF;">落地位置</span><br>${landingHtml}<br>` : ""}
-            选中 ➞ ${nodeName}<br>
-            ${errorLogs.length ? `<br><span style="color:red;">${errorLogs.join("<br>")}</span>` : ""}
-        </p>`;
+    <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.1;">
+        <br>
+        ${entryHtml ? `<span style="color:#FF993A;">入口位置</span><br>${entryHtml}<br>` : ""}
+        ${landingHtml ? `<span style="color:#6792FF;">落地位置</span><br>${landingHtml}<br>` : ""}
+        选中 ➞ ${nodeName}<br>
+        ${errorLogs.length ? `<br><span style="color:red;">${errorLogs.join("<br>")}</span>` : ""}
+    </p>`;
 
     $done({ title: scriptName, htmlMessage: html });
 
