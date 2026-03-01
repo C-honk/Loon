@@ -11,7 +11,6 @@ VIP=switch,true,false,tag=开启VIP播放
 ^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/(banner\/positions|advert\/config|global\/config\/vipEnter|resource\/recommend) reject-200
 ^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/(invitation\/assist\/popup|invitation\/swell|lowPriceText) reject-200
-^https:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v2\/sidebar response-body-json-jq '.data.sidebar|map(select(.id==3 or .id==4 or .id==10 or .id==30 or .id==33)|(.name|=if .id==4 then"车行旋律"elif .id==3 then"夜色微醺"elif .id==33 then"梦境深处"elif .id==10 then"沉眠共语"elif .id==30 then"通勤乐章"else. end)|.coverGif="")'
 
 [Script]
 http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/music\/v2\/(audioUrl|checkRight)|service\/music\/info) script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/bdyy.js, requires-body=true, timeout=10, enable={VIP}, tag=解锁播放
