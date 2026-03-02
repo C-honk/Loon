@@ -1,0 +1,18 @@
+#!name = 酷狗音乐
+#!desc = 更新于2026年3月2日
+#!icon = https://pp.myapp.com/ma_icon/0/icon_53937375_1766021512/256
+
+[Rewrite]
+^https:\/\/gateway\.kugou\.com\/goddess\/v1\/content\/biz_list reject-200
+^https:\/\/gateway\.kugou\.com\/youth\/v2\/activity\/task_list reject-200
+^https:\/\/gateway\.kugou\.com\/ads\.gateway reject-200
+^https:\/\/adservice\.kugou\.com\/v2 reject-200
+^https:\/\/gateway\.kugou\.com\/ads\.service\/v2\/lite_v_splash reject-200
+^https:\/\/gateway\.kugou\.com\/youth\/api\/user\/v1\/init reject-200
+^https:\/\/gateway\.kugou\.com\/card\/v1\/pxy\/(youth_recommend|listen) response-body-json-jq '.data.responses|=map(select(.module!="y_style" and .module!="y_lab" and .module!="y_hot" and .module!="y_song_module_4" and .module!="y_tag"))'
+^https:\/\/gateway\.kugou\.com\/youth\/v1\/channel\/tab_list response-body-json-jq '.data.list |= map(select(.tab_id != -1 and .tab_id != 2))'
+^https:\/\/gateway\.kugou\.com\/youth\/v1\/ab\/tmeab\?ab_source=TMEAB0WelcomePage0type response-body-json-jq '.data.TMEAB0FreemiumModelTouchpoint0type.mapParams|=with_entries(.value="0")|.data.TMEAB0fmBidding.mapParams|=with_entries(.value="0")|.data.TMEAB0signin0type.mapParams.enter="0"|.data.TMEAB0freesignin0type.mapParams.enter="0"|.data.TMEAB0TaskCenterEnter0type.mapParams.TFC="0"|.data.TMEAB0TaskCenterEnter0type.mapParams.style="0"|.data.TMEAB0TaskCenterEnter0type.mapParams.TaskDone="0"|.data.TMEAB0TaskCenterEnter0type.mapParams.mypage="0"|.data.TMEAB0EarningTab0type.mapParams.Earning_Tab="0"|.data.emptyqueue.mapParams.position="0"|.data.emptyqueue.mapParams.recomend="0"|.data.TMEAB0bofangballchudian0Type.mapParams.is_show="0"|.data.landscapemode.mapParams.playpage_landscape="0"|.data.aiwritesong.mapParams.aiwritesong="0"'
+^https:\/\/gateway\.kugou\.com\/youth\/v1\/ab\/tmeab\?ab_source=ysenter response-body-json-jq '.data.TMEAB0ad0type.mapParams|=with_entries(.value="0")|.data.TMEAB0vipplay0type.mapParams.vipplay_type="0"|.data.TMEAB0vipplay0type.mapParams.ad_seconds="0"|.data.TMEAB0FreemiumExposureFix0type.mapParams.popup_display="0"|.data.TMEAB0FreemiumExposureFix0type.mapParams.hot_start="0"|.data.TMEAB0FreemiumExposureFix0type.mapParams.keep_front="0"|.data.TMEAB0vipcenter0type.mapParams.vipcenter_exposure="0"|.data.TMEAB0audition0type.mapParams.secs="0"|.data.TMEAB0audition0type.mapParams.way="0"|.data.TMEAB0songupfirst0Type.mapParams|=with_entries(.value="1")'
+
+[Mitm]
+hostname = gateway.kugou.com,adservice.kugou.com
