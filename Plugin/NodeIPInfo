@@ -5,4 +5,3 @@
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/iPInfo.js, timeout=10, tag=IP信息, img-url=location.circle
-generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/NodeUnlock.js, timeout=10, tag=IP解锁查询, img-url=magnifyingglass.circle
