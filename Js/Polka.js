@@ -69,8 +69,6 @@ try{
             d.showShopEntry=false;
             d.idolTabShow=false;
             d.playingPageCollectPagList=[];
-            d.adsNotFinishVipPop4DayInterval=9999;
-            d.AllDialogIntervals=9999;
             if(d.warmStartDialog) d.warmStartDialog.count=0;
             d.offlineFavTipsGuide=0;
             if(d.downLoadZoneConfig) d.downLoadZoneConfig.freeTimeRemindTip=0;
@@ -91,34 +89,6 @@ try{
             list.forEach(item=>{
                 item.vipType='free';
                 item.audition=0;
-            });
-        }
-    }
-    else if(/abtest\/ui\/info/.test(url)){
-        let map=obj.data&&obj.data.mapTestInfo;
-        if(map){
-            let modules=[
-                map.DownloadAd&&map.DownloadAd.mapParams,
-                map.DownloadAdios&&map.DownloadAdios.mapParams,
-                map.WZDownloadAd&&map.WZDownloadAd.mapParams,
-                map.DownloadZoneOptimizationAZ&&map.DownloadZoneOptimizationAZ.mapParams,
-                map.adExpiresFreemodeShowad&&map.adExpiresFreemodeShowad.mapParams,
-                map.BDLaunchApp&&map.BDLaunchApp.mapParams,
-                map.insert&&map.insert.mapParams,
-                map.CommentADPosition&&map.CommentADPosition.mapParams,
-                map.DiscoverADPosition&&map.DiscoverADPosition.mapParams,
-                map.ClickView&&map.ClickView.mapParams,
-                map.hongbao&&map.hongbao.mapParams,
-                map.Dynamiccoins&&map.Dynamiccoins.mapParams,
-                map.Wanliu&&map.Wanliu.mapParams,
-                map.bodianmvdialog&&map.bodianmvdialog.mapParams,
-                map.FreeModVoiceReminder&&map.FreeModVoiceReminder.mapParams,
-                map.MvTryShowAds&&map.MvTryShowAds.mapParams
-            ];
-            modules.forEach(mod=>{
-                if(mod){
-                    for(let k in mod) mod[k]="0";
-                }
             });
         }
     }
