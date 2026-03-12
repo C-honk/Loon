@@ -53,36 +53,14 @@ try{
             }
         }
     }
-    else if(/api\/service\/conf\/all/.test(url)){
-        let g=obj.data&&obj.data.groupSign;
-        if(g){
-            g.adExitChange=0;
-            g.adGuideTest=0;
-            g.adStartAppDialog=0;
-            g.playTips=0;
-            g.freeDynamicChange=0;
-        }
-    }
-    else if(/api\/service\/global\/config\/scene/.test(url)){
-        let d=obj.data;
-        if(d){
-            d.showShopEntry=false;
-            d.idolTabShow=false;
-            d.playingPageCollectPagList=[];
-            if(d.warmStartDialog) d.warmStartDialog.count=0;
-            d.offlineFavTipsGuide=0;
-            if(d.downLoadZoneConfig) d.downLoadZoneConfig.freeTimeRemindTip=0;
-            if(d.iapNewConfig) d.iapNewConfig.enable=0;
-            if(d.iapConfig) d.iapConfig.enable=0;
-            d.iosAudioSessionManager_ErrAlert=false;
-        }
-    }
+
     else if(/api\/service\/home\/index/.test(url)){
         let list=obj.data&&obj.data.moduleList;
         if(Array.isArray(list)){
             obj.data.moduleList=list.filter(m=>![6,2,1,8,9].includes(m.type));
         }
     }
+
     else if(/api\/play\/sound\/effect\/list/.test(url)){
         let list=obj.data&&obj.data.list;
         if(Array.isArray(list)){
@@ -90,6 +68,26 @@ try{
                 item.vipType='free';
                 item.audition=0;
             });
+        }
+    }
+
+    else if(/api\/service\/global\/config\/scene/.test(url)){
+        let d=obj.data;
+        if(d){
+            d.showShopEntry=false;
+            d.idolTabShow=false;
+            d.thirdSchemeWhiteList=[];
+            d.playingPageCollectPagList=[];
+            d.iapNewConfig={};
+            d.iapConfig={};
+            d.downLoadZoneConfig={};
+            d.warmStartDialog={};
+            d.playingPageOutCommentConfig={};
+            d.adsNotFinishVipPop4DayInterval=0;
+            d.AllDialogIntervals=0;
+            d.audioUrlCacheTimeInterval=0;
+            d.playFeedDayCount=0;
+            d.iosDownloadFileReceiveCount=0;
         }
     }
 
