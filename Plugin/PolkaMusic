@@ -1,17 +1,23 @@
 #!name = 波点音乐
-#!desc = 更新于2026年3月12日
+#!desc = 更新于2026年3月14日
 #!icon = https://img.51wan.com/up/2025-12/2025035499939849.png
 
 [Argument]
-VIP=switch,true,false,tag=开启VIP播放
+VIP=switch,true,false,tag=开启会员播放
 
 [Rewrite]
-^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/advert\/info|service\/advert\/config|service\/conf\/all|search\/topic\/word\/list|service\/global\/config\/vipEnter|service\/resource\/recommend|pay\/vip\/lowPriceText|service\/banner\/positions|pay\/vip\/invitation\/(swell|assist)\/popup|pay\/retention\/product) response-body-json-jq '.data={}'
+^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/positions reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/play\/advert\/info reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v2\/sidebar response-body-json-jq '.data.sidebar|=map(select(.id|IN(1,17,18,21,26,28,31,32,33)|not)|.coverGif=""|if.id==4 then.name="开车好歌"elif.id==10 then.name="睡前轻松"elif.id==25 then.name="城市漫步"elif.id==27 then.name="次元精选"elif.id==30 then.name="通勤好听"elif.id==3 then.name="深夜放松"else. end)'
 
 [Script]
 http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/music\/v2\/(audioUrl|checkRight)|service\/music\/info) script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/bdyy.js, requires-body=true, timeout=10, enable={VIP}, tag=解锁播放
-http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(service\/home\/index|service\/global\/config\/scene|ucenter\/users\/(pub|login)|advert\/free\/config|play\/sound\/effect\/list) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Polka.js, requires-body=true, timeout=10, tag=配置处理
+http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(ucenter\/users\/(pub|login)|advert\/free\/config|service\/(global\/config\/scene|home\/index)|play\/sound\/effect\/list) script-path=v.js, requires-body=true, timeout=10, tag=配置会员
 
 [Mitm]
-hostname = bd-api.kuwo.cn
+hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn
