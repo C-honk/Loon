@@ -1,5 +1,5 @@
 #!name = 波点音乐
-#!desc = 更新于2026年3月14日
+#!desc = 更新于2026年3月15日
 #!icon = https://img.51wan.com/up/2025-12/2025035499939849.png
 
 [Argument]
@@ -7,10 +7,9 @@ VIP=switch,true,false,tag=开启会员播放
 
 [Rewrite]
 ^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info reject-dict
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/positions reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter reject-dict
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/conf\/all reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/(conf\/all|banner\/positions|advert\/config) reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/play\/advert\/info reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v2\/sidebar response-body-json-jq '.data.sidebar|=map(select(.id|IN(1,17,18,21,26,28,31,32,33)|not)|.coverGif=""|if.id==4 then.name="开车好歌"elif.id==10 then.name="睡前轻松"elif.id==25 then.name="城市漫步"elif.id==27 then.name="次元精选"elif.id==30 then.name="通勤好听"elif.id==3 then.name="深夜放松"else. end)'
