@@ -1,6 +1,6 @@
 // 2026-3-17
 
-const scriptName = "服务解锁检测";
+const scriptName = "节点解锁查询";
 (async () => {
     const inputParams = $environment.params;
     const nodeName = inputParams.node;
