@@ -1,6 +1,6 @@
 #!name = 节点检测
 #!desc = 更新于2026年3月17日
-#!icon = https://img.icons8.com/parakeet/1200/checklist.jpg
+#!icon = https://cdn-icons-png.freepik.com/512/5531/5531650.png
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Check.js, timeout=10, tag=节点检测, img-url=text.magnifyingglass
