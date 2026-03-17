@@ -54,7 +54,7 @@ const scriptName = "服务解锁检测";
     ]);
 
     const html = `
-    <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.2;">
+    <p style="text-align:center; font-family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI'; font-size:16px; line-height:1.1;">
         <br>
         <span style="color:#10a37f;">ChatGPT</span><br>
         ${gpt.text}<br><br>
