@@ -1,11 +1,12 @@
 #!name = 波点音乐
-#!desc = 更新于2026年3月15日
+#!desc = 更新于2026年3月18日
 #!icon = https://img.51wan.com/up/2025-12/2025035499939849.png
 
 [Argument]
 VIP=switch,true,false,tag=开启会员播放
 
 [Rewrite]
+^https:\/\/mc\.tencentmusic\.com\/sdk reject-dict
 ^https:\/\/ab-bodian\.kuwo\.cn\/abtest\/ui\/info reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText reject-dict
 ^https:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/vipEnter reject-dict
@@ -19,4 +20,4 @@ http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(play\/music\/v2\/(audioUrl|chec
 http-response ^https:\/\/bd-api\.kuwo\.cn\/api\/(ucenter\/users\/(pub|login)|advert\/free\/config|service\/(global\/config\/scene|home\/index)|play\/sound\/effect\/list) script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Polka.js, requires-body=true, timeout=10, tag=配置会员
 
 [Mitm]
-hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn
+hostname = bd-api.kuwo.cn,ab-bodian.kuwo.cn,mc.tencentmusic.com
