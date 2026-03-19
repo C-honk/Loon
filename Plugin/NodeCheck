@@ -1,6 +1,6 @@
 #!name = 节点查询
 #!desc = 更新于2026年3月19日
-#!icon = https://cdn-icons-png.freepik.com/512/5531/5531650.png
+#!icon = https://st.depositphotos.com/2904097/5102/v/450/depositphotos_51028291-stock-illustration-vector-search-magnifying-glass-icon.jpg
 
 [Script]
 generic script-path=https://github.com/C-honk/Loon/raw/refs/heads/main/Js/Check.js, timeout=10, tag=解锁服务查询, img-url=text.magnifyingglass
