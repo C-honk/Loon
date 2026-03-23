@@ -1,10 +1,15 @@
 #!name = 订阅管理
-#!desc = 更新于2026年2月28日
+#!desc = 更新于2026年3月23日
 #!icon = https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
+
+[Argument]
+cron=input, "55 23 * * *", tag=定时参数
 
 [Script]
 http-request ^https:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js, requires-body=true, timeout=120, tag=后端
 http-request ^https:\/\/sub\.store script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js, requires-body=true, timeout=120, tag=前端
+
+cron {cron} script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, timeout=120, tag=同步
 
 [MITM]
 hostname = sub.store
